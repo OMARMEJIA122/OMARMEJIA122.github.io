@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Acerca de - Omar Yeray</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+    }
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    nav {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      padding: 1rem 0;
+      border-radius: 15px;
+      margin-bottom: 2rem;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+      position: relative;
+    }
+    .hamburger {
+      display: none;
+      font-size: 1.8rem;
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: #333;
+      padding: 0.5rem 1rem;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 2rem;
+    }
+    nav a {
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+    }
+    nav a:hover {
+      color: #667eea;
+      background: rgba(102, 126, 234, 0.1);
+      transform: translateY(-2px);
+    }
+    nav a.active {
+      color: #667eea;
+      background: rgba(102, 126, 234, 0.15);
+      font-weight: 600;
+    }
+    .main-content {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      padding: 3rem;
+      border-radius: 20px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    }
+    .profile-section {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      margin-bottom: 3rem;
+    }
+    .profile-image {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 4rem;
+      color: white;
+      flex-shrink: 0;
+      overflow: hidden;
+      border: 3px solid rgba(255, 255, 255, 0.8);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    }
+    .profile-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 50%;
+    }
+    .profile-info h1 {
+      color: #333;
+      font-size: 2.5rem;
+      font-weight: 700;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 0.5rem;
+    }
+    .profile-info .subtitle {
+      color: #666;
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+    }
+    .description {
+      font-size: 1.1rem;
+      color: #555;
+      line-height: 1.8;
+      margin-bottom: 2rem;
+    }
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+    .info-card {
+      background: rgba(255, 255, 255, 0.8);
+      padding: 1.5rem;
+      border-radius: 15px;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+    .info-card h3 {
+      color: #333;
+      font-size: 1.3rem;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .info-card ul {
+      list-style: none;
+      padding-left: 0;
+    }
+    .info-card li {
+      padding: 0.5rem 0;
+      color: #666;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .info-card li::before {
+      content: "▶";
+      color: #667eea;
+      font-size: 0.8rem;
+    }
+    @media (max-width: 768px) {
+      .hamburger {
+        display: block;
+        margin: 0 auto 1rem;
+      }
+      nav ul {
+        display: none;
+        flex-direction: column;
+        gap: 1rem;
+      }
+      nav ul.show {
+        display: flex;
+      }
+      .profile-section {
+        flex-direction: column;
+        text-align: center;
+      }
+      .profile-info h1 {
+        font-size: 2rem;
+      }
+      .main-content {
+        padding: 2rem;
+      }
+      .container {
+        padding: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <nav>
+      <button class="hamburger" onclick="toggleMenu()">☰</button>
+      <ul>
+        <li><a href="index.html">🏠 Inicio</a></li>
+        <li><a href="#" class="active">👤 Acerca de</a></li>
+        <li><a href="tarea.html">📚 Tarea</a></li>
+        <li><a href="recursos.html">🔗 Recursos</a></li>
+        <li><a href="contacto.html">📧 Contacto</a></li>
+      </ul>
+    </nav>
+
+    <div class="main-content">
+      <div class="profile-section">
+        <div class="profile-image">
+          <img src="omarmejia.jpeg" alt="Omar Yeray" style="display: none;" onload="this.style.display='block'; this.parentElement.style.background='none';">
+        </div>
+        <div class="profile-info">
+          <h1>Omar Mejia
+          </h1>
+          <p class="subtitle">Apacionado a los deportes, artes, videojuegos.</p>
+        </div>
+      </div>
+
+      <div class="description">
+        ¡Hola! Soy Omar Yeray. En este apartado, mostrare lo que soy, mis objetivos, mis intereses academicos y mis habilidades, son algunas cosas de lo que soy, para que aprendas de mi.
+      </div>
+
+      <div class="info-grid">
+        <div class="info-card">
+          <h3>🎓 Intereses Académicos</h3>
+          <ul>
+            <li>Deportes</li>
+            <li>Matematicas</li>
+            <li>Aprendizaje Deportivo</li>
+            <li>Desarrollo Web</li>
+            <li>Tecnología Educativa</li>
+          </ul>
+        </div>
+
+        <div class="info-card">
+          <h3>🌟 Habilidades</h3>
+          <ul>
+            <li>Curioso</li>
+            <li>Deportista</li>
+            <li>Desarrollo web básico</li>
+            <li>Comunicación efectiva</li>
+            <li>Trabajo en equipo</li>
+          </ul>
+        </div>
+
+        <div class="info-card">
+          <h3>🎯 Objetivos</h3>
+          <ul>
+            <li>Mejorar academicamente</li>
+            <li>Mejorar habilidades técnicas</li>
+            <li>Buen estado fisico</li>
+            <li>Terminar preparatoria</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function toggleMenu() {
+      const navList = document.querySelector("nav ul");
+      navList.classList.toggle("show");
+    }
+  </script>
+   <footer style="
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  padding: 2rem;
+  text-align: center;
+  border-radius: 15px;
+  margin-top: 3rem;
+  box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.1);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+">
+  <!-- Enlaces rápidos -->
+  <div style="display: flex; justify-content: center; gap: 1.5rem; margin-bottom: 1.5rem; flex-wrap: wrap;">
+    <a href="index.html" style="color: #4a7b9d; text-decoration: none; font-weight: 500;">🏠 Inicio</a>
+    <a href="acerca.html" style="color: #4a7b9d; text-decoration: none; font-weight: 500;">👤 Acerca de</a>
+    <a href="tarea.html" style="color: #4a7b9d; text-decoration: none; font-weight: 500;">📚 Tareas</a>
+    <a href="contacto.html" style="color: #4a7b9d; text-decoration: none; font-weight: 500;">📧 Contacto</a>
+  </div>
+  <!-- Créditos y copyright -->
+  <div style="color: #666; font-size: 0.9rem;">
+    <p style="margin: 0.5rem 0;">© 2024 Omar Yeray - Proyecto de Desarrollo Web</p>
+    <p style="margin: 0.5rem 0;">Instituto Libertad, Ciudad Obregón</p>
+    <p style="margin: 0.5rem 0;">Creado con HTML5, CSS3 y JavaScript</p>
+  </div>
+</footer>
+</body>
+</html>

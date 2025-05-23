@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Mi Primera Página Web</title>
+</head>
+<body>
+    <header>
+        <h1>¡Bienvenido a Mi Página Web!</h1>
+    </header>
+
+    <main>
+        <section>
+            <h2>Sobre mí</h2>
+            <p>Hola, soy un entusiasta del desarrollo web. Esta es mi primera página hecha con HTML puro.</p>
+        </section>
+
+        <section>
+            <h2>Imagen de ejemplo</h2>
+            <img src="https://via.placeholder.com/300" alt="Imagen de ejemplo" width="300">
+        </section>
+
+        <section>
+            <h2>Enlaces útiles</h2>
+            <p>Visita <a href="https://www.w3schools.com" target="_blank">W3Schools</a> para aprender más sobre HTML.</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Mi Página Web</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Recursos - Omar Yeray</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    nav {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      padding: 1rem 0;
+      border-radius: 15px;
+      margin-bottom: 2rem;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    }
+
+    .menu-toggle {
+      display: none;
+      font-size: 1.8rem;
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: #333;
+      padding: 0.5rem 1rem;
+      margin: 0 auto 1rem;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 2rem;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #667eea;
+      background: rgba(102, 126, 234, 0.1);
+      transform: translateY(-2px);
+    }
+
+    nav a.active {
+      color: #667eea;
+      background: rgba(102, 126, 234, 0.15);
+      font-weight: 600;
+    }
+
+    .main-content {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      padding: 3rem;
+      border-radius: 20px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      color: #333;
+      margin-bottom: 1.5rem;
+      font-size: 2.5rem;
+      font-weight: 700;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-align: center;
+    }
+
+    .resources-intro {
+      font-size: 1.2rem;
+      color: #666;
+      margin-bottom: 2rem;
+      line-height: 1.8;
+      text-align: center;
+    }
+
+    .resources-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    .resource-category {
+      background: rgba(255, 255, 255, 0.8);
+      border-radius: 15px;
+      padding: 1.5rem;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      transition: transform 0.3s ease;
+    }
+
+    .resource-category:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    }
+
+    .category-title {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: #333;
+      margin-bottom: 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid rgba(102, 126, 234, 0.2);
+    }
+
+    .resource-list {
+      list-style: none;
+    }
+
+    .resource-item {
+      margin-bottom: 1rem;
+      padding: 1rem;
+      background: rgba(255, 255, 255, 0.7);
+      border-radius: 8px;
+      transition: all 0.2s ease;
+    }
+
+    .resource-item:hover {
+      background: rgba(102, 126, 234, 0.05);
+      transform: translateY(-2px);
+    }
+
+    .resource-link {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+    }
+
+    .resource-link:hover {
+      color: #667eea;
+    }
+
+    .resource-description {
+      margin-top: 0.5rem;
+      font-size: 0.9rem;
+      color: #666;
+    }
+
+    @media (max-width: 768px) {
+      .menu-toggle {
+        display: block;
+      }
+
+      nav ul {
+        display: none;
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      nav ul.active {
+        display: flex;
+      }
+
+      h1 {
+        font-size: 2rem;
+      }
+
+      .main-content {
+        padding: 2rem;
+      }
+
+      .container {
+        padding: 10px;
+      }
+
+      .resources-container {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <nav>
+      <button class="menu-toggle" aria-label="Menú">
+        ☰
+      </button>
+      <ul>
+        <li><a href="index.html">🏠 Inicio</a></li>
+        <li><a href="acerca.html">👤 Acerca de</a></li>
+        <li><a href="tarea.html">📚 Tarea</a></li>
+        <li><a href="#" class="active">🔗 Recursos</a></li>
+        <li><a href="contacto.html">📧 Contacto</a></li>
+      </ul>
+    </nav>
+
+    <div class="main-content">
+      <h1>Recursos Útiles</h1>
+      <p class="resources-intro">
+       Aqui mostrare algunas de las paginas que utilice en el desarrollo de mi pagina. 
+      </p>
+
+      
+        <div class="resource-category">
+          <div class="category-title">
+            <span>📚</span> Educación
+          </div>
+          <ul class="resource-list">
+            <li class="resource-item">
+              <a href="https://www.facebook.com/share/19NEws8R9J/?mibextid=wwXIfr" class="resource-link">
+                <span>🎓</span> Instituto Libertad
+              </a>
+              <p class="resource-description">
+                Lugar donde estudio y me enseñaron a haccer todo el codigo.
+              </p>
+            </li>
+            <li class="resource-item">
+              <a href="https://classroom.google.com/" class="resource-link">
+                <span>🧮</span> Classroom
+              </a>
+              <p class="resource-description">
+                Aplicacion donde mande mis tareas.
+              </p>
+            </li>
+            <li class="resource-item">
+              <a href="https://fasabeteam.com/libertad/cd2/" class="resource-link">
+                <span>🎓</span> Fasabeteam
+              </a>
+              <p class="resource-description">
+                Lugar en donde el profesor nos daba instruciones.
+              </p>
+            </li>
+          </ul>
+        </div>
+
+        <div class="resource-category">
+          <div class="category-title">
+            <span>💻</span> Desarrollo Web
+          </div>
+          <ul class="resource-list">
+            <li class="resource-item">
+              <a href="https://claude.ai/new" class="resource-link">
+                <span>👨‍💻</span> Claude.ai
+              </a>
+              <p class="resource-description">
+               IA que me ayudo a haccer la estetica de la pagina web
+              </p>
+            </li>
+            <li class="resource-item">
+              <a href="https://www.w3schools.com" class="resource-link">
+                <span>🌐</span> W3Schools
+              </a>
+              <p class="resource-description">
+                Sitio web para aprender tecnologías web como HTML, CSS, JavaScript y más.
+              </p>
+            </li>
+            <li class="resource-item">
+              <a href="https://github.com" class="resource-link">
+                <span>📁</span> GitHub
+              </a>
+              <p class="resource-description">
+                Plataforma de desarrollo colaborativo para alojar y revisar código.
+              </p>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const toggleBtn = document.querySelector('.menu-toggle');
+    const navList = document.querySelector('nav ul');
+
+    toggleBtn.addEventListener('click', () => {
+      navList.classList.toggle('active');
+    });
+  </script>
+  <footer style="
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  padding: 2rem;
+  text-align: center;
+  border-radius: 15px;
+  margin-top: 3rem;
+  box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.1);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+">
+  <!-- Enlaces rápidos -->
+  <div style="display: flex; justify-content: center; gap: 1.5rem; margin-bottom: 1.5rem; flex-wrap: wrap;">
+    <a href="index.html" style="color: #4a7b9d; text-decoration: none; font-weight: 500;">🏠 Inicio</a>
+    <a href="acerca.html" style="color: #4a7b9d; text-decoration: none; font-weight: 500;">👤 Acerca de</a>
+    <a href="tarea.html" style="color: #4a7b9d; text-decoration: none; font-weight: 500;">📚 Tareas</a>
+    <a href="contacto.html" style="color: #4a7b9d; text-decoration: none; font-weight: 500;">📧 Contacto</a>
+  </div>
+  <!-- Créditos y copyright -->
+  <div style="color: #666; font-size: 0.9rem;">
+    <p style="margin: 0.5rem 0;">© 2024 Omar Yeray - Proyecto de Desarrollo Web</p>
+    <p style="margin: 0.5rem 0;">Instituto Libertad, Ciudad Obregón</p>
+    <p style="margin: 0.5rem 0;">Creado con HTML5, CSS3 y JavaScript</p>
+  </div>
+</footer>
+</body>
+</html>

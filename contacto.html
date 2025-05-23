@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contacto - Omar Yeray</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+    }
+    
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    
+    nav {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      padding: 1rem 0;
+      border-radius: 15px;
+      margin-bottom: 2rem;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+      position: relative;
+    }
+    
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+    
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #667eea;
+    }
+    
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      padding: 0.5rem;
+      background: none;
+      border: none;
+      z-index: 1000;
+    }
+    
+    .hamburger span {
+      width: 25px;
+      height: 3px;
+      background: #333;
+      margin: 3px 0;
+      transition: 0.3s;
+      border-radius: 2px;
+    }
+    
+    .hamburger.active span:nth-child(1) {
+      transform: rotate(-45deg) translate(-5px, 6px);
+    }
+    
+    .hamburger.active span:nth-child(2) {
+      opacity: 0;
+    }
+    
+    .hamburger.active span:nth-child(3) {
+      transform: rotate(45deg) translate(-5px, -6px);
+    }
+    
+    nav ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 2rem;
+    }
+    
+    nav a {
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+    }
+    
+    nav a:hover {
+      color: #667eea;
+      background: rgba(102, 126, 234, 0.1);
+      transform: translateY(-2px);
+    }
+    
+    nav a.active {
+      color: #667eea;
+      background: rgba(102, 126, 234, 0.15);
+      font-weight: 600;
+    }
+    
+    .main-content {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      padding: 3rem;
+      border-radius: 20px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    }
+    
+    .contact-header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+    
+    .contact-header h1 {
+      color: #333;
+      font-size: 2.5rem;
+      font-weight: 700;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 1rem;
+    }
+    
+    .contact-header p {
+      color: #666;
+      font-size: 1.2rem;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-bottom: 3rem;
+    }
+    
+    .contact-info {
+      background: rgba(255, 255, 255, 0.8);
+      padding: 2rem;
+      border-radius: 15px;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+    
+    .contact-form {
+      background: rgba(255, 255, 255, 0.8);
+      padding: 2rem;
+      border-radius: 15px;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+    
+    .contact-method {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1.5rem;
+      margin-bottom: 1rem;
+      background: rgba(255, 255, 255, 0.7);
+      border-radius: 10px;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+    
+    .contact-method:hover {
+      background: rgba(102, 126, 234, 0.05);
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+    
+    .contact-icon {
+      font-size: 2rem;
+      width: 60px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      border-radius: 50%;
+      color: white;
+      flex-shrink: 0;
+    }
+    
+    .contact-details h3 {
+      color: #333;
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+    }
+    
+    .contact-details p {
+      color: #666;
+      font-size: 0.9rem;
+      margin-bottom: 0.5rem;
+    }
+    
+    .contact-details a {
+      color: #667eea;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    
+    .contact-details a:hover {
+      color: #764ba2;
+    }
+    
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+    
+    .form-group label {
+      display: block;
+      color: #333;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+    
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      width: 100%;
+      padding: 0.8rem;
+      border: 2px solid rgba(102, 126, 234, 0.2);
+      border-radius: 8px;
+      font-size: 1rem;
+      background: rgba(255, 255, 255, 0.9);
+      transition: border-color 0.3s ease;
+    }
+    
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus {
+      outline: none;
+      border-color: #667eea;
+    }
+    
+    .form-group textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+    
+    .submit-btn {
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      color: white;
+      padding: 1rem 2rem;
+      border: none;
+      border-radius: 10px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      width: 100%;
+    }
+    
+    .submit-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
+    }
+    
+    .social-links {
+      background: rgba(255, 255, 255, 0.8);
+      padding: 2rem;
+      border-radius: 15px;
+      text-align: center;
+    }
+    
+    .social-links h3 {
+      color: #333;
+      font-size: 1.4rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    .social-grid {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    
+    .social-link {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      border-radius: 50%;
+      color: white;
+      text-decoration: none;
+      font-size: 1.5rem;
+      transition: all 0.3s ease;
+    }
+    
+    .social-link:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
+    }
+    
+    .availability {
+      background: rgba(255, 255, 255, 0.8);
+      padding: 2rem;
+      border-radius: 15px;
+      margin-top: 2rem;
+    }
+    
+    .availability h3 {
+      color: #333;
+      font-size: 1.4rem;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    
+    .availability-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1rem;
+    }
+    
+    .availability-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem;
+      background: rgba(255, 255, 255, 0.7);
+      border-radius: 8px;
+    }
+    
+    .day {
+      font-weight: 600;
+      color: #333;
+    }
+    
+    .time {
+      color: #667eea;
+      font-weight: 500;
+    }
+    
+    /* Estilos del menú móvil */
+    @media (max-width: 768px) {
+      .hamburger {
+        display: flex;
+      }
+      
+      nav ul {
+        position: fixed;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100vh;
+        background: rgba(255, 255, 255, 0.98);
+        backdrop-filter: blur(20px);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 3rem;
+        transition: left 0.3s ease;
+        z-index: 999;
+      }
+      
+      nav ul.active {
+        left: 0;
+      }
+      
+      nav a {
+        color: #333;
+        font-size: 1.5rem;
+        padding: 1rem 2rem;
+        border-radius: 15px;
+        transition: all 0.3s ease;
+      }
+      
+      nav a:hover {
+        color: #667eea;
+        background: rgba(102, 126, 234, 0.1);
+        transform: scale(1.05);
+      }
+      
+      .contact-header h1 {
+        font-size: 2rem;
+      }
+      
+      .main-content {
+        padding: 2rem;
+      }
+      
+      .container {
+        padding: 10px;
+      }
+      
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .social-grid {
+        gap: 0.5rem;
+      }
+      
+      .nav-container {
+        padding: 0 1rem;
+      }
+      
+      /* Cerrar menú al hacer scroll */
+      body.menu-open {
+        overflow: hidden;
+      }
+    }
+    
+    @media (min-width: 769px) {
+      .nav-container {
+        justify-content: center;
+      }
+      
+      .logo {
+        position: absolute;
+        left: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <nav>
+      <div class="nav-container">
+        <button class="hamburger" id="hamburger">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <ul id="navMenu">
+          <li><a href="index.html">🏠 Inicio</a></li>
+          <li><a href="acerca.html">👤 Acerca de</a></li>
+          <li><a href="tarea.html">📚 Tarea</a></li>
+          <li><a href="recursos.html">🔗 Recursos</a></li>
+          <li><a href="#" class="active">📧 Contacto</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="main-content">
+      <div class="contact-header">
+        <h1>¡Conectemos!</h1>
+        <p>Lugar para contactarme.</p>
+      </div>
+      
+      <div class="contact-grid">
+        <div class="contact-info">
+          <h3 style="color: #333; font-size: 1.4rem; margin-bottom: 1.5rem;">📞 Información de Contacto</h3>
+          
+          <div class="contact-method" onclick="window.location.href='mailto:Omarm3jia33@gmail.com'">
+            <div class="contact-icon">📧</div>
+            <div class="contact-details">
+              <h3>Correo Electrónico</h3>
+              <p>Para consultas académicas y profesionales</p>
+              <a href="mailto:Omarm3jia33@gmail.com">Omarm3jia33@gmail.com</a>
+            </div>
+          </div>
+          
+          <div class="contact-method" onclick="window.location.href='tel:+526444075889'">
+            <div class="contact-icon">📱</div>
+            <div class="contact-details">
+              <h3>Teléfono</h3>
+              <p>Disponible en horario laboral</p>
+              <a href="tel:+526444075889">+52 6444075889</a>
+            </div>
+          </div>
+          
+          <div class="contact-method">
+            <div class="contact-icon">📍</div>
+            <div class="contact-details">
+              <h3>Ubicación</h3>
+              <p>Instituto Libertad</p>
+              <p>Ciudad de Obregón, Sonora</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="contact-form">
+          <h3 style="color: #333; font-size: 1.4rem; margin-bottom: 1.5rem;">📝 Envíame un mensaje</h3>
+          
+          <form action="#" method="post">
+            <div class="form-group">
+              <label for="name">Nombre completo</label>
+              <input type="text" id="name" name="name" placeholder="Tu Nombre" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="email">Correo electrónico</label>
+              <input type="email" id="email" name="email" placeholder="Tu Correo" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="subject">Asunto</label>
+              <select id="subject" name="subject">
+                <option value="question">Pregunta general</option>
+                <option value="project">Propuesta de proyecto</option>
+                <option value="feedback">Comentarios</option>
+                <option value="other">Otro</option>
+              </select>
+            </div>
+            
+            <div class="form-group">
+              <label for="message">Mensaje</label>
+              <textarea id="message" name="message" placeholder="Escribe tu mensaje aquí..." required></textarea>
+            </div>
+            
+            <button type="submit" class="submit-btn">Enviar mensaje</button>
+          </form>
+        </div>
+      </div>
+      
+      <div class="social-links">
+        <h3>🌐 Sígueme en redes sociales</h3>
+        
+        <div class="social-grid">
+          <a href="https://x.com/" class="social-link" title="Twitter">𝕏</a>
+          <a href="https://github.com/" class="social-link" title="GitHub">
+            <span style="font-size: 1.8rem;">⎇</span>
+          </a>
+          <a href="https://www.instagram.com/omar.mejia06?igsh=b2V4bDE0bDA5OWJr" class="social-link" title="Instagram">📷</a>
+        </div>
+      </div>
+      
+      <div class="availability">
+        <h3>⏰ Horario de disponibilidad</h3>
+        
+        <div class="availability-grid">
+          <div class="availability-item">
+            <span class="day">Lunes - Viernes</span>
+            <span class="time">9:00 AM - 5:00 PM</span>
+          </div>
+          <div class="availability-item">
+            <span class="day">Sábados</span>
+            <span class="time">10:00 AM - 2:00 PM</span>
+          </div>
+          <div class="availability-item">
+            <span class="day">Domingos</span>
+            <span class="time">No disponible</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Funcionalidad del menú hamburguesa
+    const hamburger = document.getElementById('hamburger');
+    const navMenu = document.getElementById('navMenu');
+    const body = document.body;
+
+    hamburger.addEventListener('click', function() {
+      hamburger.classList.toggle('active');
+      navMenu.classList.toggle('active');
+      body.classList.toggle('menu-open');
+    });
+
+    // Cerrar menú al hacer clic en un enlace
+    const navLinks = document.querySelectorAll('nav a');
+    navLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        hamburger.classList.remove('active');
+        navMenu.classList.remove('active');
+        body.classList.remove('menu-open');
+      });
+    });
+
+    // Cerrar menú al hacer clic fuera de él
+    document.addEventListener('click', function(event) {
+      const isClickInsideNav = navMenu.contains(event.target) || hamburger.contains(event.target);
+      
+      if (!isClickInsideNav && navMenu.classList.contains('active')) {
+        hamburger.classList.remove('active');
+        navMenu.classList.remove('active');
+        body.classList.remove('menu-open');
+      }
+    });
+
+    // Cerrar menú al cambiar el tamaño de pantalla
+    window.addEventListener('resize', function() {
+      if (window.innerWidth > 768) {
+        hamburger.classList.remove('active');
+        navMenu.classList.remove('active');
+        body.classList.remove('menu-open');
+      }
+    });
+  </script>
+   <footer style="
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  padding: 2rem;
+  text-align: center;
+  border-radius: 15px;
+  margin-top: 3rem;
+  box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.1);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+">
+  <!-- Enlaces rápidos -->
+  <div style="display: flex; justify-content: center; gap: 1.5rem; margin-bottom: 1.5rem; flex-wrap: wrap;">
+    <a href="index.html" style="color: #4a7b9d; text-decoration: none; font-weight: 500;">🏠 Inicio</a>
+    <a href="acerca.html" style="color: #4a7b9d; text-decoration: none; font-weight: 500;">👤 Acerca de</a>
+    <a href="tarea.html" style="color: #4a7b9d; text-decoration: none; font-weight: 500;">📚 Tareas</a>
+    <a href="contacto.html" style="color: #4a7b9d; text-decoration: none; font-weight: 500;">📧 Contacto</a>
+  </div>
+  <!-- Créditos y copyright -->
+  <div style="color: #666; font-size: 0.9rem;">
+    <p style="margin: 0.5rem 0;">© 2024 Omar Yeray - Proyecto de Desarrollo Web</p>
+    <p style="margin: 0.5rem 0;">Instituto Libertad, Ciudad Obregón</p>
+    <p style="margin: 0.5rem 0;">Creado con HTML5, CSS3 y JavaScript</p>
+  </div>
+</footer>
+</body>
+</html>

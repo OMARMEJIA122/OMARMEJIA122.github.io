@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Mi Primera Página Web</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #007BFF;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        main {
+            padding: 20px;
+            max-width: 800px;
+            margin: auto;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        h1, h2 {
+            margin-bottom: 10px;
+        }
+
+        p {
+            line-height: 1.6;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        a {
+            color: #007BFF;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 15px 0;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>¡Bienvenido a Mi Página Web!</h1>
+    </header>
+
+    <main>
+        <section>
+            <h2>Sobre mí</h2>
+            <p>Hola, soy un entusiasta del desarrollo web. Esta es mi primera página hecha con HTML y CSS3.</p>
+        </section>
+
+        <section>
+            <h2>Imagen de ejemplo</h2>
+            <img src="https://via.placeholder.com/300" alt="Imagen de ejemplo">
+        </section>
+
+        <section>
+            <h2>Enlaces útiles</h2>
+            <p>Visita <a href="https://www.w3schools.com" target="_blank">W3Schools</a> para aprender más sobre HTML y CSS.</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Mi Página Web</p>
+    </footer>
+</body>
+</html>
+

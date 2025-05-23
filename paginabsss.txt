@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Mi Página Web con Menú</title>
+    <style>
+        /* Estilos generales */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #007BFF;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            position: relative;
+        }
+
+        nav {
+            background-color: #0056b3;
+            overflow: hidden;
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        nav li {
+            margin: 0;
+        }
+
+        nav a {
+            display: block;
+            padding: 15px 20px;
+            color: white;
+            text-decoration: none;
+        }
+
+        nav a:hover {
+            background-color: #003d80;
+        }
+
+        .menu-toggle {
+            display: none;
+            background-color: #007BFF;
+            border: none;
+            color: white;
+            font-size: 20px;
+            padding: 10px;
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            cursor: pointer;
+        }
+
+        main {
+            padding: 20px;
+            max-width: 800px;
+            margin: auto;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        a {
+            color: #007BFF;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 15px 0;
+            margin-top: 20px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+                flex-direction: column;
+            }
+
+            nav ul.active {
+                display: flex;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>¡Bienvenido a Mi Página Web!</h1>
+        <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+    </header>
+
+    <nav>
+        <ul id="menu">
+            <li><a href="#">Inicio</a></li>
+            <li><a href="#sobre">Sobre mí</a></li>
+            <li><a href="#imagen">Imagen</a></li>
+            <li><a href="#enlaces">Enlaces</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section id="sobre">
+            <h2>Sobre mí</h2>
+            <p>Hola, soy un entusiasta del desarrollo web. Esta es mi primera página hecha con HTML, CSS3 y JavaScript.</p>
+        </section>
+
+        <section id="imagen">
+            <h2>Imagen de ejemplo</h2>
+            <img src="https://via.placeholder.com/300" alt="Imagen de ejemplo">
+        </section>
+
+        <section id="enlaces">
+            <h2>Enlaces útiles</h2>
+            <p>Visita <a href="https://www.w3schools.com" target="_blank">W3Schools</a> para aprender más sobre desarrollo web.</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Mi Página Web</p>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById("menu");
+            menu.classList.toggle("active");
+        }
+    </script>
+</body>
+</html>
+
